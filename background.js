@@ -1,4 +1,4 @@
-import OBR, { buildShape } from "https://cdn.jsdelivr.net/npm/@owlbear-rodeo/sdk@3.1.0/+esm";
+import OBR, { buildShape } from "https://cdn.jsdelivr.net/npm/@owlbear-rodeo/sdk@3/+esm";
 import { ID, TOK, BAR, CMD, LOG, url, aplicar } from "./ordem.js";
 import { dadosIniciais, lerFicha } from "./ficha.js";
 

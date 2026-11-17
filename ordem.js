@@ -1,5 +1,5 @@
 // Núcleo compartilhado: constantes, estado do combate, regras e rolagem.
-import OBR from "https://cdn.jsdelivr.net/npm/@owlbear-rodeo/sdk@3.1.0/+esm";
+import OBR from "https://cdn.jsdelivr.net/npm/@owlbear-rodeo/sdk@3/+esm";
 
 export const ID = "com.ordem.combate";
 export const TOK = `${ID}/tok`;       // metadados do token: {nome,pv,pvMax,pd,pdMax,nl}

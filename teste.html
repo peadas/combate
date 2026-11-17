@@ -1,0 +1,36 @@
+<!doctype html>
+<html lang="pt-BR"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Teste – Ordem Combate</title>
+<style>
+ body{font:16px/1.5 system-ui,sans-serif;max-width:640px;margin:24px auto;padding:0 16px;background:#1d2127;color:#e9e9e1}
+ li{list-style:none;padding:4px 0} .ok{color:#6fcf8a} .erro{color:#ff7b7b} code{background:#0004;padding:1px 5px}
+</style></head>
+<body>
+<h1>Teste da extensão</h1>
+<p>Cada linha deve ficar verde. Mande print das vermelhas.</p>
+<ul id="lista"></ul>
+<script type="module">
+const lista = document.getElementById("lista");
+const linha = (ok, txt) => { const li = document.createElement("li"); li.className = ok ? "ok" : "erro"; li.textContent = (ok ? "✓ " : "✗ ") + txt; lista.append(li); };
+const base = new URL("./", location.href);
+linha(true, "Esta página está em " + base.href);
+
+const arquivos = ["manifest.json","icon.svg","background.html","background.js","combate.html","combate.js","combate.css","ordem.js","ficha.js"];
+for (const f of arquivos) {
+  try { const r = await fetch(new URL(f, base), { cache: "no-store" }); linha(r.ok, `${f} → HTTP ${r.status}`); }
+  catch (e) { linha(false, `${f} → falhou (${e.message})`); }
+}
+
+try {
+  const m = await (await fetch(new URL("manifest.json", base), { cache: "no-store" })).json();
+  const caminhos = { icon: m.icon, "action.icon": m.action?.icon, "action.popover": m.action?.popover, background_url: m.background_url };
+  for (const [k, v] of Object.entries(caminhos)) {
+    const r = await fetch(new URL(v, location.origin), { cache: "no-store" });
+    linha(r.ok, `manifest ${k} = ${v} → ${location.origin}${v} → HTTP ${r.status}`);
+  }
+} catch (e) { linha(false, "Não consegui ler o manifest: " + e.message); }
+
+try { await import("https://cdn.jsdelivr.net/npm/@owlbear-rodeo/sdk@3/+esm"); linha(true, "SDK do Owlbear carregou do CDN"); }
+catch (e) { linha(false, "SDK do Owlbear NÃO carregou do CDN (" + e.message + ")"); }
+</script>
+</body></html>
