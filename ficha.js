@@ -2,7 +2,7 @@
 // no Owlbear. Como a chave exata não é conhecida, a busca é tolerante: varre os
 // metadados de outras extensões atrás de um objeto com pv/pd. Use o
 // "Diagnóstico da ficha" (aba Settings) para ver o que o fichazs publica de fato.
-import OBR from "https://cdn.jsdelivr.net/npm/@owlbear-rodeo/sdk@3/+esm";
+import OBR from "./sdk.js";
 
 const MEU = "com.ordem.combate";
 const n = (v) => (v !== "" && v !== null && v !== undefined && Number.isFinite(+v) ? +v : null);

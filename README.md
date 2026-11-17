@@ -1,7 +1,4 @@
-# Ordem – Combate (versão para a raiz do domínio)
-
-1. Crie um repositório PÚBLICO chamado exatamente `peadas.github.io`.
-2. Envie TODOS estes arquivos na raiz dele.
-3. Settings > Pages > `main` / root.
-4. Teste: https://peadas.github.io/teste.html (tudo verde)
-5. Owlbear > Extensions > Add > https://peadas.github.io/manifest.json
+# Ordem – Combate v0.3 (GitHub Pages em /combate/)
+1. Envie TODOS os arquivos para a raiz do repositório `combate` (substituir os antigos).
+2. Teste: https://peadas.github.io/combate/teste.html
+3. Owlbear > Extensions > Add > https://peadas.github.io/combate/manifest.json

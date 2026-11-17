@@ -1,4 +1,4 @@
-import OBR from "https://cdn.jsdelivr.net/npm/@owlbear-rodeo/sdk@3/+esm";
+import OBR from "./sdk.js";
 import { dadosIniciais, diagnostico } from "./ficha.js";
 import { TOK, CMD, FASES, ACOES_GERAIS, MANOBRAS, DADOS, getEstado, aplicar, avisar,
   rolar, passoDado, cfg, salvarCfg } from "./ordem.js";

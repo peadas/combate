@@ -15,7 +15,7 @@ const linha = (ok, txt) => { const li = document.createElement("li"); li.classNa
 const base = new URL("./", location.href);
 linha(true, "Esta página está em " + base.href);
 
-const arquivos = ["manifest.json","icon.svg","background.html","background.js","combate.html","combate.js","combate.css","ordem.js","ficha.js"];
+const arquivos = ["sdk.js","manifest.json","icon.svg","background.html","background.js","combate.html","combate.js","combate.css","ordem.js","ficha.js"];
 for (const f of arquivos) {
   try { const r = await fetch(new URL(f, base), { cache: "no-store" }); linha(r.ok, `${f} → HTTP ${r.status}`); }
   catch (e) { linha(false, `${f} → falhou (${e.message})`); }
@@ -30,7 +30,7 @@ try {
   }
 } catch (e) { linha(false, "Não consegui ler o manifest: " + e.message); }
 
-try { await import("https://cdn.jsdelivr.net/npm/@owlbear-rodeo/sdk@3/+esm"); linha(true, "SDK do Owlbear carregou do CDN"); }
-catch (e) { linha(false, "SDK do Owlbear NÃO carregou do CDN (" + e.message + ")"); }
+try { const m = await import("./sdk.js"); linha(true, "SDK do Owlbear carregou de: " + m.fonteUsada.url); if (m.fonteUsada.erros.length) linha(false, "Fontes que falharam antes: " + m.fonteUsada.erros.join(" | ")); }
+catch (e) { linha(false, "SDK NÃO carregou: " + e.message); }
 </script>
 </body></html>
