@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "manifest_version": 1,
   "author": "peadas",
-  "description": "Sistema de combate por fases (Geral, Distância, Corpo a corpo) com barras de vida nos tokens.",
+  "description": "Sistema de combate por fases com barras de vida nos tokens.",
   "icon": "/combate/icon.svg",
   "action": {
     "title": "Combate",
