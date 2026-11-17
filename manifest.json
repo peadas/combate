@@ -1,16 +1,16 @@
 {
   "name": "Ordem – Combate",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "manifest_version": 1,
   "author": "peadas",
   "description": "Sistema de combate por fases com barras de vida nos tokens.",
-  "icon": "/combate/icon.svg",
+  "icon": "/icon.svg",
   "action": {
     "title": "Combate",
-    "icon": "/combate/icon.svg",
-    "popover": "/combate/combate.html",
+    "icon": "/icon.svg",
+    "popover": "/combate.html",
     "width": 420,
     "height": 620
   },
-  "background_url": "/combate/background.html"
+  "background_url": "/background.html"
 }
