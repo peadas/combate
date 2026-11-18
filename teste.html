@@ -30,7 +30,7 @@ try {
   }
 } catch (e) { linha(false, "Não consegui ler o manifest: " + e.message); }
 
-try { const m = await import("./sdk.js"); linha(true, "SDK do Owlbear carregou de: " + m.fonteUsada.url); if (m.fonteUsada.erros.length) linha(false, "Fontes que falharam antes: " + m.fonteUsada.erros.join(" | ")); }
+try { const m = await import("./sdk.js"); linha(typeof m.default.onReady === "function", "SDK do Owlbear carregou de: " + m.fonteUsada.url + " (onReady: " + typeof m.default.onReady + ")"); if (m.fonteUsada.erros.length) linha(false, "Fontes que falharam antes: " + m.fonteUsada.erros.join(" | ")); }
 catch (e) { linha(false, "SDK NÃO carregou: " + e.message); }
 </script>
 </body></html>

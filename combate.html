@@ -10,6 +10,13 @@
 <link rel="stylesheet" href="combate.css">
 </head>
 <body>
+<script>
+  function ordemErro(t){var a=document.getElementById("app");if(!a)return;a.innerHTML="";var p=document.createElement("pre");
+    p.style.cssText="white-space:pre-wrap;color:#ff9b9b;padding:8px;font:12px monospace";p.textContent=t;a.appendChild(p);}
+  addEventListener("error",function(e){ordemErro("Erro: "+(e.message||e.error))});
+  addEventListener("unhandledrejection",function(e){ordemErro("Erro: "+(e.reason&&(e.reason.stack||e.reason.message)||e.reason))});
+  setTimeout(function(){var c=document.querySelector(".carregando");if(c)ordemErro("Não conectou ao Owlbear em 10 s.\nEste painel só funciona aberto de dentro do Owlbear (ícone da extensão) e com uma cena aberta.")},10000);
+</script>
 <div id="app"><p class="carregando">Conectando ao Owlbear…</p></div>
 <script type="module" src="./combate.js"></script>
 </body>

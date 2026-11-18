@@ -1,4 +1,5 @@
-# Ordem – Combate v0.3 (GitHub Pages em /combate/)
-1. Envie TODOS os arquivos para a raiz do repositório `combate` (substituir os antigos).
-2. Teste: https://peadas.github.io/combate/teste.html
-3. Owlbear > Extensions > Add > https://peadas.github.io/combate/manifest.json
+# Ordem – Combate v0.4 (raiz do domínio)
+Netlify Drop: acesse https://app.netlify.com/drop e arraste ESTA PASTA (ou o zip extraído).
+Você recebe um endereço tipo https://nome-aleatorio.netlify.app
+1. Teste: https://SEU-ENDERECO.netlify.app/teste.html (tudo verde)
+2. Owlbear > Extensions > Add > https://SEU-ENDERECO.netlify.app/manifest.json

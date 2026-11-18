@@ -20,11 +20,16 @@ const voltar = () => { if (pilha.length > 1) pilha.pop(); render(); };
 const reset = () => { pilha = ["raiz"]; ctx = {}; render(); };
 
 OBR.onReady(async () => {
-  papel = await OBR.player.getRole();
-  await carregar();
-  OBR.scene.onMetadataChange(carregar);
-  OBR.scene.items.onChange(carregar);
-  OBR.player.onChange(carregar);
+  try {
+    papel = await OBR.player.getRole();
+    await carregar();
+  } catch (e) {
+    window.ordemErro("Erro ao iniciar: " + (e?.message || e) + "\n(Abra uma cena no Owlbear e tente de novo.)");
+  }
+  OBR.scene.onReadyChange((r) => r && carregar().catch((e) => window.ordemErro(String(e?.message || e))));
+  OBR.scene.onMetadataChange(() => carregar().catch(() => {}));
+  OBR.scene.items.onChange(() => carregar().catch(() => {}));
+  OBR.player.onChange(() => carregar().catch(() => {}));
 });
 
 async function carregar() {

@@ -3,6 +3,7 @@ import { ID, TOK, BAR, CMD, LOG, url, aplicar } from "./ordem.js";
 import { dadosIniciais, lerFicha } from "./ficha.js";
 
 OBR.onReady(async () => {
+ try {
   const papel = await OBR.player.getRole();
 
   // Botão da espada na barra de ferramentas
@@ -96,4 +97,5 @@ OBR.onReady(async () => {
   OBR.scene.onReadyChange((r) => r && desenhar());
   OBR.scene.items.onChange(desenhar);
   if (await OBR.scene.isReady()) desenhar();
+} catch (e) { console.error(e); OBR.notification.show('Ordem – Combate: erro ao iniciar: ' + (e?.message || e), 'ERROR'); }
 });
